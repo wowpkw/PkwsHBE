@@ -198,9 +198,6 @@ Page.Button({
 Page.Button({
     Text = "Hitbox Extend",
     Callback = function()
-Page.Button({
-    Text = "Hitbox Extend",
-    Callback = function()
  
 while wait(1) do
 for i,v in next, game.Players:GetPlayers() do
