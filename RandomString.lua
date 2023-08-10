@@ -19,4 +19,3 @@ end
 
 -- Generate and print a randomized string of length 15
 local randomString = GenerateRandomString(25)
-print(randomString)
