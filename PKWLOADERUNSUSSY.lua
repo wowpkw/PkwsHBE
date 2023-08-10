@@ -10,6 +10,8 @@ local AB = 8573962925
 local BM2LOBBY = 969669348
 local BM2GAME = 2819998741
 local BM2RANKED = 5965084607
+local DH = 2788229376
+local DHVC = 7213786345
 
 --SHORTCUTS
 
@@ -18,6 +20,7 @@ local DBSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/DYNASTYH
 local UNIVERSAL = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/UniversalHBE.lua"
 local ABSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/ABHBE.lua"
 local BM2SCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/BM2.lua"
+local DHSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/DHLOCK"
 
 --LOADER
 if placeId == (BAPN) then
@@ -43,6 +46,26 @@ elseif placeId == (DBHBE) then
 elseif placeId == (AB) then
     local success, result = pcall(function()
         loadstring(game:HttpGet(ABSCRIPT))()
+    end)
+    
+    if success then
+        print("Loadstring executed successfully for placeId "..placeId.."!")
+    else
+        warn("Error while executing loadstring for placeId "..placeId..":", result)
+	end
+elseif placeId == (DH) then
+    local success, result = pcall(function()
+        loadstring(game:HttpGet(DHSCRIPT))()
+    end)
+    
+    if success then
+        print("Loadstring executed successfully for placeId "..placeId.."!")
+    else
+        warn("Error while executing loadstring for placeId "..placeId..":", result)
+    end
+elseif placeId == (DHVC) then
+    local success, result = pcall(function()
+        loadstring(game:HttpGet(DHSCRIPT))()
     end)
     
     if success then
