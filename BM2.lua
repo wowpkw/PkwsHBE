@@ -198,83 +198,39 @@ Page.Button({
 Page.Button({
     Text = "Hitbox Extend",
     Callback = function()
-getgenv().EnumSize = _G.HeadSize
-getgenv().EnumColor = _G.Color
-getgenv().EnumKey = Enum.KeyCode.P
-
-local Player: Player, Enabled: boolean = game:GetService('Players').LocalPlayer, true
-local Character = Player.Character or Player.CharacterAdded
-local Mouse = Player:GetMouse()
-
--- // Functionality
-function Modify() -- /* ON */
-   for _,v in pairs(game:GetService('Players'):GetPlayers()) do
-       if v.Name ~= Player.Name then
-           pcall(function()
-               v.Character.HumanoidRootPart.Size, v.Character.HumanoidRootPart.Transparency = Vector3.new(EnumSize, EnumSize, EnumSize), .99
-               v.Character.HumanoidRootPart.Color = EnumColor
-               v.Character.HumanoidRootPart.CanCollide = false
-
-               for _,v in pairs(v.Character:GetDescendants()) do
-                   if v.Name == "nG1#8Bg#hj6pP8mXQUlURh1Mtw4hAXCG4cBLVfFsF0RJru#!a7" then
-                       return
-                   end
-               end
-
-               local ESP = Instance.new("Highlight", v.Character) -- Set the character variable to the character model of the targeted player
-               ESP.Name = "nG1#8Bg#hj6pP8mXQUlURh1Mtw4hAXCG4cBLVfFsF0RJru#!a7"
-               ESP.FillColor = Color3.new(0, 0, 0)
-               ESP.FillTransparency = 1
-               ESP.OutlineColor = EnumColor
-               ESP.OutlineTransparency = 0
-               ESP.Adornee = v.Character.HumanoidRootPart
-            end)
-       end
-   end
+Page.Button({
+    Text = "Hitbox Extend",
+    Callback = function()
+ 
+while wait(1) do
+for i,v in next, game.Players:GetPlayers() do
+if v.Name ~= game.Players.LocalPlayer.Name and v.Character then
+for i,d in next, getconnections(v.Character.Head.Changed) do
+d:Disable()
 end
-
-function Normalize()  -- /* OFF */
-   for _,v in pairs(game:GetService('Players'):GetPlayers()) do
-       if v.Name ~= Player.Name then
-           pcall(function()
-               v.Character.HumanoidRootPart.Size, v.Character.HumanoidRootPart.Transparency = Vector3.new(2, 2, 1), 1
-               v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Medium stone grey")
-               v.Character.HumanoidRootPart.CanCollide = false
-
-               for _,v in pairs(v.Character:GetDescendants()) do
-                   if v.Name == "nG1#8Bg#hj6pP8mXQUlURh1Mtw4hAXCG4cBLVfFsF0RJru#!a7" then
-                       v:Destroy()
-                   end
-               end
-            end)
-       end
-   end
+for i,c in next, getconnections(v.Character.Head:GetPropertyChangedSignal("Size")) do
+c:Disable()
 end
-
-game:GetService('UserInputService').InputBegan:Connect(function(input, index)
-   if index then return end
-   if input.KeyCode == EnumKey then
-       if Enabled == nil then -- /* ON */
-           Enabled = true Modify()
-           game:GetService("StarterGui"):SetCore("SendNotification", {
-               Title = "Enabled!";
-               Text = tostring(Player.Name);
-           })
-       elseif Enabled == true then -- /* OFF */
-           Enabled = nil Normalize()
-           game:GetService("StarterGui"):SetCore("SendNotification", {
-               Title = "Disabled!";
-               Text = tostring(Player.Name);
-           })
-       end
-   end
+pcall(function()
+ 
+v.Character.Head.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+ 
+sethiddenproperty(v.Character.Head, "Massless", true)
+ 
+v.Character.Head.CanCollide = (_G.Collision)
+ 
+v.Character.Head.Transparency = (_G.Transparency)
+ 
+v.Character.Head.BrickColor = BrickColor.new(_G.Color)
+ 
+v.Character.Head.Material = ("Neon")
+ 
+ 
+ 
 end)
-
-game:GetService('RunService').RenderStepped:Connect(function()
-   if Enabled == true then
-       Modify()
-   end
-end)
+end
+end
+end
  
 game.StarterGui:SetCore(
 	"SendNotification",
