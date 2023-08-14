@@ -67,7 +67,7 @@ Page4.TextField({
 Page4.Button({
 	Text = "Send report",
 	Callback = function(Value)
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/wowpkw/thingsimayneed/main/sendreportviawebhook%2Blogger"))();
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/wowpkw/thingsimayneed/main/sendreportviawebhook%2Blogger.lua"))();
 
 	game.StarterGui:SetCore(
 	"SendNotification",
