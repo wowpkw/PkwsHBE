@@ -20,7 +20,7 @@ local DBSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/DYNASTYH
 local UNIVERSAL = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/UniversalHBE.lua"
 local ABSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/ABHBE.lua"
 local BM2SCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/BM2.lua"
-local DHSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/DHLOCK"
+local DHSCRIPT = "https://raw.githubusercontent.com/wowpkw/PkwsHBE/main/DHLOCK.lua"
 
 --LOADER
 if placeId == (BAPN) then
